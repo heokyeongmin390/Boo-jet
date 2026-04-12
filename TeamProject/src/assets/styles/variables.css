@@ -1,0 +1,37 @@
+:root {
+  --kb-yellow: #ffbc00;
+  --kb-yellow-hover: #f0b000;
+  --kb-gray: #60584c;
+  --kb-dark-gray: #545045;
+  --kb-bg: #f8f9fa;
+  --input-border: #dee2e6;
+
+  --bg-color: #ffffff;
+  --page-bg: #f6f8fb;
+  --text-color: #222222;
+  --text-muted: #6b7280;
+
+  --card-bg: #ffffff;
+  --sub-bg: #f8f9fa;
+
+  --border-color: #dddddd;
+  --border-light: #e5e9f0;
+  --bg-color-gradient: linear-gradient(135deg, #e0f2f7 0%, #f7e0e7 100%);
+
+  --shadow-sm: 0 10px 24px rgba(15, 23, 42, 0.05);
+}
+
+html.dark {
+  --bg-color: #121212;
+  --page-bg: #121212;
+  --text-color: #f1f1f1;
+  --text-muted: #94a3b8;
+
+  --card-bg: #1e1e1e;
+  --sub-bg: #1f2937;
+
+  --border-color: #333333;
+  --border-light: #334155;
+  --bg-color-gradient: #121212;
+  --shadow-sm: 0 10px 24px rgba(0, 0, 0, 0.45);
+}

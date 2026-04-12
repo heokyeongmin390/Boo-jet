@@ -1,0 +1,253 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "민수2",
+      "email": "minsu@test.com",
+      "phone": "010-1234-5678",
+      "password": "1234",
+      "createdAt": "2026-04-01T00:00:00.000Z",
+      "profileImageKey": "profile2"
+    },
+    {
+      "id": 2,
+      "name": "지연",
+      "email": "jiyeon@test.com",
+      "phone": "010-5678-1234",
+      "password": "1234",
+      "createdAt": "2026-04-01T00:00:00.000Z",
+      "profileImageKey": "profile5"
+    },
+    {
+      "id": 3,
+      "name": "동호",
+      "email": "dongho@test.com",
+      "phone": "010-9012-3456",
+      "password": "1234",
+      "createdAt": "2026-04-01T00:00:00.000Z",
+      "profileImageKey": "profile3"
+    },
+    {
+      "id": 4,
+      "name": "성훈",
+      "email": "hoon@test.com",
+      "phone": "010-9012-3456",
+      "password": "1234",
+      "createdAt": "2026-04-02T00:00:00.000Z",
+      "profileImageKey": "profile4"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "userId": 1,
+      "type": "INCOME",
+      "category": "기타",
+      "amount": 3000000,
+      "memo": "월급",
+      "date": "2026-04-01"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "식비",
+      "amount": 12000,
+      "memo": "점심 식사",
+      "date": "2026-04-02"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "식비",
+      "amount": 35000,
+      "memo": "저녁 식사",
+      "date": "2026-04-03"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "식비",
+      "amount": 23000,
+      "memo": "아침 식사",
+      "date": "2026-04-03"
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "type": "EXPENSE",
+      "category": "교통/차량",
+      "amount": 2500,
+      "memo": "버스",
+      "date": "2026-04-02"
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "교통/차량",
+      "amount": 3000,
+      "memo": "버스",
+      "date": "2026-04-04"
+    },
+    {
+      "id": 7,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "교통/차량",
+      "amount": 4500,
+      "memo": "지하철",
+      "date": "2026-04-05"
+    },
+    {
+      "id": 8,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "주거/통신",
+      "amount": 50000,
+      "memo": "전기세",
+      "date": "2026-04-06"
+    },
+    {
+      "id": 9,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "주거/통신",
+      "amount": 70000,
+      "memo": "월세 일부",
+      "date": "2026-04-07"
+    },
+    {
+      "id": 10,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "쇼핑/생활",
+      "amount": 25000,
+      "memo": "생필품",
+      "date": "2026-04-08"
+    },
+    {
+      "id": 11,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "쇼핑/생활",
+      "amount": 60000,
+      "memo": "옷 구매",
+      "date": "2026-04-09"
+    },
+    {
+      "id": 12,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "의료/건강",
+      "amount": 15000,
+      "memo": "약국",
+      "date": "2026-04-10"
+    },
+    {
+      "id": 13,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "의료/건강",
+      "amount": 30000,
+      "memo": "병원 진료",
+      "date": "2026-04-11"
+    },
+    {
+      "id": 14,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "문화/여가",
+      "amount": 12000,
+      "memo": "영화",
+      "date": "2026-04-12"
+    },
+    {
+      "id": 15,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "문화/여가",
+      "amount": 20000,
+      "memo": "카페",
+      "date": "2026-04-13"
+    },
+    {
+      "id": 16,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "기타",
+      "amount": 10000,
+      "memo": "잡비",
+      "date": "2026-04-14"
+    },
+    {
+      "id": 17,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "기타",
+      "amount": 8000,
+      "memo": "편의점",
+      "date": "2026-04-15"
+    },
+    {
+      "id": 18,
+      "userId": 1,
+      "type": "EXPENSE",
+      "category": "기타",
+      "amount": 80000,
+      "memo": "편의점",
+      "date": "2026-04-15"
+    },
+    {
+      "userId": 1,
+      "type": "INCOME",
+      "category": "커플",
+      "amount": 200000,
+      "date": "2026-04-01",
+      "memo": "수입",
+      "goalId": 1,
+      "id": 19
+    }
+  ],
+  "couples": [
+    {
+      "id": 1,
+      "user1Id": 1,
+      "user2Id": 2,
+      "status": true,
+      "createdAt": "2026-04-01"
+    }
+  ],
+  "coupleRequests": [
+    {
+      "id": 1,
+      "fromId": 2,
+      "toId": 1,
+      "status": "pending",
+      "createdAt": "2026-04-07"
+    },
+    {
+      "id": 2,
+      "fromId": 3,
+      "toId": 1,
+      "status": "rejected",
+      "createdAt": "2026-04-07"
+    }
+  ],
+  "coupleGoals": [
+    {
+      "coupleId": 1,
+      "type": "INCOME",
+      "title": "312321",
+      "targetAmount": 21321321,
+      "startDate": "2026-04-12",
+      "endDate": "2026-05-12",
+      "categories": [],
+      "category": "",
+      "createdAt": "2026-04-12T11:16:41.526Z",
+      "id": 1
+    }
+  ]
+}
