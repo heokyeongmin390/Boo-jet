@@ -44,35 +44,37 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
-import { useAuthStore } from "@/stores/auth";
-import { useUiStore } from "@/stores/ui";
-import AuthPage from "../../components/auth/AuthPage.vue";
-import Signup from "../../components/auth/Signup.vue";
-import DelayModal from "../../components/common/DelayModal.vue";
-import happyCharacter from "@/assets/happy-character.png";
-import errorCharacter from "@/assets/error-character.png";
-import logoImage from "@/assets/Logo.png";
+import { computed, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/stores/auth';
+import { useUiStore } from '@/stores/ui';
+import AuthPage from '../../components/auth/AuthPage.vue';
+import Signup from '../../components/auth/Signup.vue';
+import DelayModal from '../../components/common/DelayModal.vue';
+import happyCharacter from '@/assets/happy-character.png';
+import happySunglass from '@/assets/happy_sunglass_Character.png';
+import errorCharacter from '@/assets/error-character.png';
+import logoImage from '@/assets/Logo.png';
 
-const DEFAULT_ASIDE_TEXT = "가계쀼와 함께 새 가계부를 시작해요";
+const DEFAULT_ASIDE_TEXT = '가계쀼와 함께 새 가계부를 시작해요';
 
 const store = useAuthStore();
 const uiStore = useUiStore();
 const router = useRouter();
 
-const name = ref("");
-const email = ref("");
-const phone = ref("");
-const password = ref("");
-const confirmPassword = ref("");
+const name = ref('');
+const email = ref('');
+const phone = ref('');
+const password = ref('');
+const confirmPassword = ref('');
 
-const currentAsideImage = computed(() =>
-  store.errorMessage ? errorCharacter : happyCharacter,
-);
+const currentAsideImage = computed(() => {
+  if (store.errorMessage) return errorCharacter;
+  return uiStore.isDarkMode ? happySunglass : happyCharacter;
+});
 
 const currentAsideAlt = computed(() =>
-  store.errorMessage ? "Signup error character" : "Happy character",
+  store.errorMessage ? 'Signup error character' : 'Happy character',
 );
 
 const currentAsideText = computed(
@@ -87,12 +89,12 @@ const submitSignup = async () => {
   store.clearError();
 
   if (password.value !== confirmPassword.value) {
-    store.errorMessage = "비밀번호가 일치하지 않습니다.";
+    store.errorMessage = '비밀번호가 일치하지 않습니다.';
     return;
   }
 
   if (password.value.length < 4) {
-    store.errorMessage = "비밀번호는 최소 4자 이상이어야 합니다.";
+    store.errorMessage = '비밀번호는 최소 4자 이상이어야 합니다.';
     return;
   }
 
@@ -104,8 +106,8 @@ const submitSignup = async () => {
   });
 
   if (result.success) {
-    uiStore.showToast("회원가입이 완료되었습니다. 로그인해주세요.");
-    router.push({ name: "login" });
+    uiStore.showToast('회원가입이 완료되었습니다. 로그인해주세요.');
+    router.push({ name: 'login' });
   }
 };
 
@@ -171,7 +173,7 @@ onMounted(() => {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 1.4em;
   width: 1.4em;
   border-radius: 50%;

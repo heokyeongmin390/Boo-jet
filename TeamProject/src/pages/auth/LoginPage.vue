@@ -37,33 +37,35 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
-import { useRouter } from "vue-router";
-import { useAuthStore } from "@/stores/auth";
-import { useUiStore } from "@/stores/ui";
-import AuthPage from "../../components/auth/AuthPage.vue";
-import Login from "../../components/auth/Login.vue";
-import happyCharacter from "@/assets/happy-character.png";
-import errorCharacter from "@/assets/error-character.png";
-import logoImage from "@/assets/Logo.png";
+import { computed, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useAuthStore } from '@/stores/auth';
+import { useUiStore } from '@/stores/ui';
+import AuthPage from '../../components/auth/AuthPage.vue';
+import Login from '../../components/auth/Login.vue';
+import happyCharacter from '@/assets/happy-character.png';
+import happySunglass from '@/assets/happy_sunglass_Character.png';
+import errorCharacter from '@/assets/error-character.png';
+import logoImage from '@/assets/Logo.png';
 
-const REMEMBERED_EMAIL_KEY = "rememberedEmail";
-const DEFAULT_ASIDE_TEXT = "가계쀼와 함께 오늘도 가볍게 시작해요";
+const REMEMBERED_EMAIL_KEY = 'rememberedEmail';
+const DEFAULT_ASIDE_TEXT = '가계쀼와 함께 오늘도 가볍게 시작해요';
 
 const authStore = useAuthStore();
 const uiStore = useUiStore();
 const router = useRouter();
 
-const email = ref("");
-const password = ref("");
+const email = ref('');
+const password = ref('');
 const rememberEmail = ref(false);
 
-const currentAsideImage = computed(() =>
-  authStore.errorMessage ? errorCharacter : happyCharacter,
-);
+const currentAsideImage = computed(() => {
+  if (authStore.errorMessage) return errorCharacter;
+  return uiStore.isDarkMode ? happySunglass : happyCharacter;
+});
 
 const currentAsideAlt = computed(() =>
-  authStore.errorMessage ? "Login error character" : "Happy character",
+  authStore.errorMessage ? 'Login error character' : 'Happy character',
 );
 
 const currentAsideText = computed(
@@ -97,12 +99,12 @@ const submitLogin = async () => {
 
   if (result.success) {
     syncRememberEmail();
-    uiStore.showToast("로그인에 성공했습니다.");
-    router.push({ name: "home" });
+    uiStore.showToast('로그인에 성공했습니다.');
+    router.push({ name: 'home' });
     return;
   }
 
-  uiStore.showToast(result.message || "로그인에 실패했습니다.", "error");
+  uiStore.showToast(result.message || '로그인에 실패했습니다.', 'error');
 };
 
 onMounted(() => {
@@ -172,7 +174,7 @@ onMounted(() => {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 1.4em;
   width: 1.4em;
   border-radius: 50%;
