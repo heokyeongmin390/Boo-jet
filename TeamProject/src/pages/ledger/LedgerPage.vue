@@ -28,8 +28,8 @@
 
         <div class="row g-4">
           <div class="col-12 col-lg-8">
-            <TransactionList 
-              :selectedCategory="selectedCategory" 
+            <TransactionList
+              :selectedCategory="selectedCategory"
               @itemClick="openEditModal"
             />
           </div>
@@ -56,15 +56,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from "vue";
-import { useLedgerStore } from "@/stores/ledger";
-import { ChevronLeft, ChevronRight } from "lucide-vue-next";
+import { ref, onMounted, watch } from 'vue';
+import { useLedgerStore } from '@/stores/ledger';
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next';
 
 // 컴포넌트 임포트
-import TransactionList from "@/components/ledger/TransactionList.vue";
-import CategoryBarChart from "@/components/ledger/CategoryBarChart.vue";
-import CategoryRanking from "@/components/ledger/CategoryRanking.vue";
-import EditLedgerDialog from "@/components/ledger/EditLedgerDialog.vue";
+import TransactionList from '@/components/ledger/TransactionList.vue';
+import CategoryBarChart from '@/components/ledger/CategoryBarChart.vue';
+import CategoryRanking from '@/components/ledger/CategoryRanking.vue';
+import EditLedgerDialog from '@/components/ledger/EditLedgerDialog.vue';
 
 const ledgerStore = useLedgerStore();
 
@@ -84,7 +84,7 @@ onMounted(() => {
 });
 
 /**
- * 날짜 변경 감시: 
+ * 날짜 변경 감시:
  * ledgerDate가 변하면 Store의 연/월 정보를 동기화합니다.
  */
 watch(ledgerDate, (newDate) => {
@@ -110,7 +110,7 @@ const handleUpdate = async (updatedItem) => {
     await ledgerStore.updateTransaction(updatedItem);
     isEditModalOpen.value = false;
   } catch (e) {
-    alert("수정에 실패했습니다: " + e.message);
+    alert('수정에 실패했습니다: ' + e.message);
   }
 };
 
@@ -122,7 +122,7 @@ const handleDelete = async (id) => {
     await ledgerStore.deleteTransaction(id);
     isEditModalOpen.value = false;
   } catch (e) {
-    alert("삭제에 실패했습니다: " + e.message);
+    alert('삭제에 실패했습니다: ' + e.message);
   }
 };
 
@@ -150,8 +150,9 @@ const nextMonth = () => {
 <style scoped>
 .ledger-page {
   min-height: 100vh;
-  width: calc(100% + 3rem);
-  margin: -2rem -1.5rem -1.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 16px;
   background: var(--page-bg);
   color: var(--text-color);
 }
@@ -191,6 +192,7 @@ const nextMonth = () => {
   .ledger-page {
     width: calc(100% + 6rem);
     margin: -3rem;
+    padding: 0;
   }
 
   .ledger-inner {

@@ -35,17 +35,17 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from "vue"; // watch 추가
-import { useLedgerStore } from "@/stores/ledger";
-import SummaryCards from "@/components/home/SummaryCards.vue";
-import LedgerCalendar from "@/components/ledger/LedgerCalendar.vue";
-import DateDetailView from "@/components/ledger/DateDetailView.vue";
-import EditLedgerDialog from "@/components/ledger/EditLedgerDialog.vue";
-import ExpensePieChart from "@/components/home/ExpensePieChart.vue";
+import { ref, computed, onMounted, watch } from 'vue'; // watch 추가
+import { useLedgerStore } from '@/stores/ledger';
+import SummaryCards from '@/components/home/SummaryCards.vue';
+import LedgerCalendar from '@/components/ledger/LedgerCalendar.vue';
+import DateDetailView from '@/components/ledger/DateDetailView.vue';
+import EditLedgerDialog from '@/components/ledger/EditLedgerDialog.vue';
+import ExpensePieChart from '@/components/home/ExpensePieChart.vue';
 
 const ledgerStore = useLedgerStore();
 // 초기값: 오늘 날짜
-const selectedDateString = ref(new Date().toISOString().split("T")[0]);
+const selectedDateString = ref(new Date().toISOString().split('T')[0]);
 const isEditModalOpen = ref(false);
 const selectedItem = ref(null);
 
@@ -68,10 +68,10 @@ const currentDateData = computed(() => {
     (t) => t.date === selectedDateString.value,
   );
   const income = details
-    .filter((t) => t.type === "INCOME")
+    .filter((t) => t.type === 'INCOME')
     .reduce((s, t) => s + t.amount, 0);
   const expense = details
-    .filter((t) => t.type === "EXPENSE")
+    .filter((t) => t.type === 'EXPENSE')
     .reduce((s, t) => s + t.amount, 0);
   return { income, expense, details };
 });
@@ -90,7 +90,7 @@ const handleUpdate = async (updatedItem) => {
     await ledgerStore.updateTransaction(updatedItem);
     isEditModalOpen.value = false;
   } catch (e) {
-    alert("수정 실패: " + e.message);
+    alert('수정 실패: ' + e.message);
   }
 };
 
@@ -99,7 +99,7 @@ const handleDelete = async (id) => {
     await ledgerStore.deleteTransaction(id);
     isEditModalOpen.value = false;
   } catch (e) {
-    alert("삭제 실패: " + e.message);
+    alert('삭제 실패: ' + e.message);
   }
 };
 
@@ -109,20 +109,28 @@ onMounted(() => ledgerStore.fetchTransactions());
 <style scoped>
 .home-page {
   min-height: 100vh;
-  width: calc(100% + 3rem);
-  margin: -1.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 16px;
   background: var(--page-bg);
   color: var(--text-color);
 }
+
 .home-inner {
   max-width: 125rem;
   margin: 0 auto;
-  padding: 5.5rem 1.5rem 1.5rem;
+  padding: 1rem 0 1.5rem;
 }
+
 @media (min-width: 768px) {
   .home-page {
     width: calc(100% + 6rem);
     margin: -3rem;
+    padding: 0;
+  }
+
+  .home-inner {
+    padding: 5.5rem 1.5rem 1.5rem;
   }
 }
 </style>

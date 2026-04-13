@@ -1,14 +1,14 @@
 <script setup>
-import { ref, computed } from "vue";
-import { usecouplesStore } from "@/stores/couples.js";
-import { useAuthStore } from "@/stores/auth.js";
-import CoupleCard from "@/components/common/CoupleCard.vue";
-import { useUiStore } from "@/stores/ui";
+import { ref, computed } from 'vue';
+import { usecouplesStore } from '@/stores/couples.js';
+import { useAuthStore } from '@/stores/auth.js';
+import CoupleCard from '@/components/common/CoupleCard.vue';
+import { useUiStore } from '@/stores/ui';
 
 const uiStore = useUiStore();
 const coupleStore = usecouplesStore();
 const authStore = useAuthStore();
-const keyword = ref("");
+const keyword = ref('');
 
 const limitedSearchResults = computed(() =>
   coupleStore.searchResults.slice(0, 5),
@@ -23,7 +23,7 @@ const handleSearch = () => {
 };
 
 const resetSearch = () => {
-  keyword.value = "";
+  keyword.value = '';
   coupleStore.searchResults = [];
 };
 
@@ -31,18 +31,18 @@ const getUserCardType = (user) => {
   const receivedReq = coupleStore.pendingReceivedRequests.find(
     (req) => req.user?.id === user.id,
   );
-  if (receivedReq) return "received";
+  if (receivedReq) return 'received';
 
   const sentReq = coupleStore.pendingSentRequests.find(
     (req) => req.user?.id === user.id,
   );
-  if (sentReq) return "sent";
+  if (sentReq) return 'sent';
 
   if (coupleStore.isTargetAlreadyCoupled(user.id)) {
-    return "matched";
+    return 'matched';
   }
 
-  return "search";
+  return 'search';
 };
 
 const getRequestIdByUser = (user) => {
@@ -62,7 +62,7 @@ const getReceivedRequestUser = (user) => {
 const handleAction = async ({ type, user, requestId }) => {
   const myId = authStore.user.id;
 
-  if (type === "request") {
+  if (type === 'request') {
     const result = await coupleStore.sendcoupleRequest({
       requesterId: myId,
       targetUserId: user.id,
@@ -70,42 +70,42 @@ const handleAction = async ({ type, user, requestId }) => {
 
     if (result.success) {
       await coupleStore.fetchSentRequests(myId);
-      uiStore.showToast("파트너 요청을 보냈습니다.");
+      uiStore.showToast('파트너 요청을 보냈습니다.');
     } else {
-      uiStore.showToast(result.message || "요청 전송에 실패했습니다.");
+      uiStore.showToast(result.message || '요청 전송에 실패했습니다.');
     }
   }
 
-  if (type === "accept") {
+  if (type === 'accept') {
     const result = await coupleStore.acceptcoupleRequest(user);
 
     if (result.success) {
-      uiStore.showToast("커플 연결이 완료되었습니다.");
+      uiStore.showToast('커플 연결이 완료되었습니다.');
       return;
     }
 
-    uiStore.showToast(result.message || "요청 수락에 실패했습니다.");
+    uiStore.showToast(result.message || '요청 수락에 실패했습니다.');
   }
 
-  if (type === "reject") {
+  if (type === 'reject') {
     const result = await coupleStore.rejectcoupleRequest(user.id);
 
     if (result.success) {
       await coupleStore.fetchReceivedRequests(myId);
-      uiStore.showToast("요청을 거절했습니다.", "error");
+      uiStore.showToast('요청을 거절했습니다.', 'error');
     } else {
-      uiStore.showToast(result.message || "거절에 실패했습니다.", "error");
+      uiStore.showToast(result.message || '거절에 실패했습니다.', 'error');
     }
   }
 
-  if (type === "cancel") {
+  if (type === 'cancel') {
     const result = await coupleStore.cancelcoupleRequest(requestId);
 
     if (result.success) {
       await coupleStore.fetchSentRequests(myId);
-      uiStore.showToast("요청을 취소했습니다.", "error");
+      uiStore.showToast('요청을 취소했습니다.', 'error');
     } else {
-      uiStore.showToast(result.message || "취소에 실패했습니다.", "error");
+      uiStore.showToast(result.message || '취소에 실패했습니다.', 'error');
     }
   }
 };
@@ -271,21 +271,27 @@ const handleAction = async ({ type, user, requestId }) => {
 <style scoped>
 .couples-page {
   min-height: 100vh;
-  width: calc(100% + 3rem);
-  margin: -1.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 16px;
   background: var(--page-bg);
   color: var(--text-color);
 }
 
 .couples-inner {
   max-width: 86rem;
-  padding: 5.5rem 1.5rem 1.5rem;
+  padding: 4rem 0 1.5rem;
 }
 
 @media (min-width: 768px) {
   .couples-page {
     width: calc(100% + 6rem);
     margin: -3rem;
+    padding: 0;
+  }
+
+  .couples-inner {
+    padding: 5.5rem 1.5rem 1.5rem;
   }
 }
 

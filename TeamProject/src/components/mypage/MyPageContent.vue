@@ -24,7 +24,9 @@
             :special-badges="specialBadges"
             @open-profile-image-picker="$emit('open-profile-image-picker')"
           />
-          <button class="btn btn-danger w-100 mt-3" @click="$emit('logout')">로그아웃</button>
+          <button class="btn btn-danger w-100 mt-3" @click="$emit('logout')">
+            로그아웃
+          </button>
         </div>
 
         <div class="col-12 col-lg-7 col-xl-8">
@@ -67,7 +69,11 @@
               </div>
             </div>
 
-            <div v-if="errorMessage" class="alert alert-danger py-2 mb-4" role="alert">
+            <div
+              v-if="errorMessage"
+              class="alert alert-danger py-2 mb-4"
+              role="alert"
+            >
               {{ errorMessage }}
             </div>
 
@@ -133,7 +139,11 @@
                 </template>
               </MyPageFieldRow>
 
-              <MyPageFieldRow icon="calendar_month" label="가입일" :bordered="false">
+              <MyPageFieldRow
+                icon="calendar_month"
+                label="가입일"
+                :bordered="false"
+              >
                 <template #value>
                   <p class="fw-bold m-0">{{ formattedJoinDate }}</p>
                 </template>
@@ -145,7 +155,9 @@
                 class="info-summary-box w-100 d-flex align-items-center justify-content-between px-4 py-3 rounded-4 text-start"
               >
                 <div class="d-flex align-items-center gap-3 info-summary-left">
-                  <span class="material-symbols-outlined info-summary-icon">account_circle</span>
+                  <span class="material-symbols-outlined info-summary-icon"
+                    >account_circle</span
+                  >
                   <span class="small fw-bold m-0">
                     {{
                       isEditing
@@ -194,8 +206,12 @@
     >
       <div class="d-flex align-items-start justify-content-between gap-3 mb-3">
         <div>
-          <h5 id="profile-image-modal-title" class="fw-bold mb-1">프로필 사진 변경</h5>
-          <p class="modal-desc small mb-0">마음에 드는 기본 프로필 이미지를 선택해주세요.</p>
+          <h5 id="profile-image-modal-title" class="fw-bold mb-1">
+            프로필 사진 변경
+          </h5>
+          <p class="modal-desc small mb-0">
+            마음에 드는 기본 프로필 이미지를 선택해주세요.
+          </p>
         </div>
         <button
           type="button"
@@ -307,7 +323,11 @@
         </div>
       </div>
 
-      <div v-if="passwordErrorMessage" class="alert alert-danger py-2 mt-3 mb-0" role="alert">
+      <div
+        v-if="passwordErrorMessage"
+        class="alert alert-danger py-2 mt-3 mb-0"
+        role="alert"
+      >
         {{ passwordErrorMessage }}
       </div>
       <div class="d-flex justify-content-end gap-2 mt-4">
@@ -363,7 +383,11 @@
         >
           취소
         </button>
-        <button type="button" class="btn btn-dark" @click="$emit('confirm-logout')">
+        <button
+          type="button"
+          class="btn btn-dark"
+          @click="$emit('confirm-logout')"
+        >
           로그아웃
         </button>
       </div>
@@ -380,8 +404,12 @@
     >
       <div class="d-flex align-items-start justify-content-between gap-3 mb-3">
         <div>
-          <h5 id="delete-modal-title" class="fw-bold mb-1 text-danger">회원탈퇴</h5>
-          <p class="modal-desc small mb-0">탈퇴 전 아래 내용을 꼭 확인해주세요.</p>
+          <h5 id="delete-modal-title" class="fw-bold mb-1 text-danger">
+            회원탈퇴
+          </h5>
+          <p class="modal-desc small mb-0">
+            탈퇴 전 아래 내용을 꼭 확인해주세요.
+          </p>
         </div>
         <button
           type="button"
@@ -405,8 +433,8 @@
 
         <p class="mb-2">회원탈퇴를 진행하면 현재 계정 정보가 삭제됩니다.</p>
         <p class="mb-2">
-          Mock 서버 환경에서는 데이터 정합성을 위해 거래내역, 커플 정보, 커플 요청 데이터도
-          함께 정리됩니다.
+          Mock 서버 환경에서는 데이터 정합성을 위해 거래내역, 커플 정보, 커플
+          요청 데이터도 함께 정리됩니다.
         </p>
         <p class="mb-0 fw-semibold">이 작업은 되돌릴 수 없습니다.</p>
       </div>
@@ -551,7 +579,9 @@ defineEmits([
   'update:selected-profile-image-key',
 ]);
 
-const displayName = computed(() => props.user?.name || props.user?.nickname || '사용자');
+const displayName = computed(
+  () => props.user?.name || props.user?.nickname || '사용자',
+);
 
 const formattedJoinDate = computed(() => {
   if (!props.user?.createdAt) {
@@ -683,8 +713,9 @@ const formattedJoinDate = computed(() => {
 
 .mypage-page {
   min-height: 100vh;
-  width: calc(100% + 3rem);
-  margin: -1.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 0 16px;
   background: var(--page-bg);
   color: var(--text-color);
 }
@@ -734,8 +765,10 @@ const formattedJoinDate = computed(() => {
 }
 
 @media (min-width: 768px) {
-  .mypage-header {
-    margin-bottom: 1.5rem;
+  .mypage-page {
+    width: calc(100% + 6rem);
+    margin: -3rem;
+    padding: 0;
   }
 }
 

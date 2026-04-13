@@ -426,7 +426,6 @@
       "memo": "약국",
       "date": "2026-04-12"
     },
-
     {
       "id": 44,
       "userId": 1,
@@ -517,7 +516,6 @@
       "memo": "외식",
       "date": "2026-02-16"
     },
-
     {
       "id": 54,
       "userId": 1,
@@ -671,7 +669,6 @@
       "memo": "편의점",
       "date": "2026-02-12"
     },
-
     {
       "id": 71,
       "userId": 2,
@@ -744,7 +741,6 @@
       "memo": "잡비",
       "date": "2026-03-12"
     },
-
     {
       "id": 79,
       "userId": 3,
@@ -817,7 +813,6 @@
       "memo": "편의점",
       "date": "2026-02-12"
     },
-
     {
       "id": 87,
       "userId": 3,
@@ -891,43 +886,15 @@
       "date": "2026-03-12"
     }
   ],
-  "couples": [
-    {
-      "id": 1,
-      "user1Id": 1,
-      "user2Id": 2,
-      "status": true,
-      "createdAt": "2026-04-01"
-    }
-  ],
+  "couples": [],
   "coupleRequests": [
     {
-      "id": 1,
       "fromId": 2,
       "toId": 1,
       "status": "pending",
-      "createdAt": "2026-04-07"
-    },
-    {
-      "id": 2,
-      "fromId": 3,
-      "toId": 1,
-      "status": "rejected",
-      "createdAt": "2026-04-07"
-    }
-  ],
-  "coupleGoals": [
-    {
-      "coupleId": 1,
-      "type": "INCOME",
-      "title": "312321",
-      "targetAmount": 21321321,
-      "startDate": "2026-04-12",
-      "endDate": "2026-05-12",
-      "categories": [],
-      "category": "",
-      "createdAt": "2026-04-12T11:16:41.526Z",
+      "createdAt": "2026-04-13T01:27:25.243Z",
       "id": 1
     }
-  ]
+  ],
+  "coupleGoals": []
 }
